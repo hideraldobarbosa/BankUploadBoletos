@@ -17,12 +17,12 @@ namespace Bank.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task <IActionResult> Upload(IFormFile file)
+        public async Task<IActionResult> Upload(IFormFile file)
         {
             if (file.ContentType != "text/plain")
             {
                 return BadRequest("Tipo formato inválido");
-         
+
             }
 
             List<CarteiraAtivosPorCliente> carteiras = new();
@@ -71,5 +71,13 @@ namespace Bank.WebApi.Controllers
             return Ok(response);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUpload()
+        {
+
+            await _carteiraAtivosClienteService.DeleteDadosCarteira();
+            return Ok();
+
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank.Domain.Entities
 {
-    public class CarteiraAtivosPorCliente : BaseEntity, IAggregateRoot
+    public class CarteiraAtivosPorCliente : BaseEntity, IAssociaCarteira
     {
         public CarteiraAtivosPorCliente(DateTime dataOperacao, string codigoClienteCarteira, string tipoOperacao, string idBolsa, string codigoAtivo, string corretora, int quantidade, decimal precoUnitario)
         {

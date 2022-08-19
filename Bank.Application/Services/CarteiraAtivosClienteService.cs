@@ -59,6 +59,13 @@ namespace Bank.Application.Services
             return listaCarteiraProcessada;
         }
 
+        public Task DeleteDadosCarteira()
+        {
+             _carteiraAtivosClienteRepository.DeleteAll();
+            return Task.CompletedTask;  
+        }
+
+
         private List<CarteiraAtivosPorCliente> CalculaDesconto(List<CarteiraAtivosPorCliente> listaCarteiraProcessada)
         {
             List<CarteiraAtivosPorCliente>? carteirasCliente = new();

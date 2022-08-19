@@ -6,5 +6,7 @@ namespace Bank.Application.Interfaces
     public interface ICarteiraAtivosClienteService
     {
         Task<List<CarteiraAtivosPorCliente>> InserirDadosCarteira(List<CarteiraAtivosPorCliente> ativosCliente);
+
+        Task DeleteDadosCarteira();
     }
 }

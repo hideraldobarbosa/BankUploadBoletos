@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank.Domain.Interfaces
 {
-    public interface IAggregateRoot
+    public interface IAssociaCarteira
     {
     }
 }
