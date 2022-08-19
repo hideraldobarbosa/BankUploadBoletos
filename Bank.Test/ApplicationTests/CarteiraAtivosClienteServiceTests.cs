@@ -1,32 +1,27 @@
-﻿using Bank.Application.Interfaces;
-using Bank.Application.Services;
+﻿using Bank.Application.Services;
 using Bank.Domain.Entities;
 using Bank.Domain.Interfaces;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank.Test.ApplicationTests
 {
     public class CarteiraAtivosClienteServiceTests
     {
-        private readonly CarteiraAtivosClienteService carteiraAtivosClienteService;
-        private readonly Mock<ICarteiraAtivosClienteRepository> carteiraAtivosClienteRepository;
+        private readonly CarteiraAtivosClienteService _carteiraAtivosClienteService;
+        private readonly Mock<ICarteiraAtivosClienteRepository> _carteiraAtivosClienteRepositoryMock;
 
-        public CarteiraAtivosClienteServiceTests(CarteiraAtivosClienteService carteiraAtivosClienteService, Mock<ICarteiraAtivosClienteRepository> carteiraAtivosClienteRepository)
+        public CarteiraAtivosClienteServiceTests(CarteiraAtivosClienteService carteiraAtivosClienteService,
+            Mock<ICarteiraAtivosClienteRepository> carteiraAtivosClienteRepositoryMock)
         {
-            this.carteiraAtivosClienteService = carteiraAtivosClienteService;
-            this.carteiraAtivosClienteRepository = carteiraAtivosClienteRepository;
+            _carteiraAtivosClienteService = carteiraAtivosClienteService;
+            _carteiraAtivosClienteRepositoryMock = carteiraAtivosClienteRepositoryMock;
         }
 
-        public void DadosAtivoCarteiraCliente()
+        public void DadosCarteiraAtivosClientes()
         {
-            List<CarteiraAtivosPorCliente> listaCarteiraClienteEsperado = new();
+            List<CarteiraAtivosPorCliente> listaCarteiraCliente = new();
 
-            listaCarteiraClienteEsperado.Add(
+            listaCarteiraCliente.Add(
                 new CarteiraAtivosPorCliente(DateTime.Now,
                                              "CARTEIRA CLIENTE A",
                                              "Compra",
@@ -37,7 +32,7 @@ namespace Bank.Test.ApplicationTests
                                              400)
             );
 
-            listaCarteiraClienteEsperado.Add(
+            listaCarteiraCliente.Add(
                 new CarteiraAtivosPorCliente(DateTime.Now,
                                             "CARTEIRA CLIENTE B",
                                             "Compra",
@@ -51,7 +46,7 @@ namespace Bank.Test.ApplicationTests
 
             List<CarteiraAtivosPorCliente> listaCarteiraClienteInvalidos = new();
 
-            listaCarteiraClienteEsperado.Add(
+            listaCarteiraClienteInvalidos.Add(
                 new CarteiraAtivosPorCliente(DateTime.Now,
                                              "CARTEIRA CLIENTE Y",
                                              "Compra",
@@ -62,7 +57,7 @@ namespace Bank.Test.ApplicationTests
                                              220)
             );
 
-            listaCarteiraClienteEsperado.Add(
+            listaCarteiraClienteInvalidos.Add(
                 new CarteiraAtivosPorCliente(DateTime.Now,
                                             "CARTEIRA CLIENTE X",
                                             "Compra",
@@ -72,38 +67,49 @@ namespace Bank.Test.ApplicationTests
                                             180,
                                             130)
             );
+        }
 
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_FalhaValidacao()
+        {
 
 
         }
 
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_SucessoValidacao()
+        {
+        }
 
-        //[Fact]
-        //[Trait(nameof(ICarteiraAtivosClienteService.InserirDadosCarteira), "Erro")]
-        //public async Task ProcessarCarteiraAsync_Erro(It.IsAny(), )
-        //{
-        //    await Assert.ThrowsAnyAsync<>(async () =>
-        //    {
-        //        await carter.ObterFilmesAsync(new Pesquisa());
-        //    });
-        //}
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_FalhaDesconto()
+        {
+        }
 
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_SucessoDesconto()
+        {
+        }
 
-        //[Fact]
-        //public void ProcessaCarteira_IsFail()
-        //{
-        //    var carteiraAtivosClienteRepositorymock = new Mock<ICarteiraAtivosClienteRepository>();
-        //    var texto = "0#RV";
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_FalhaUpload()
+        {
+        }
 
-        //    _carteiraAtivosClienteService
-        //        .Setup(p => p.InserirDadosCarteira(I)
-        //        .Returns(listaCarteiraEsperado)
-        //        );
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_SucessoUpload()
+        {
 
- 
-        //    string result = home.GetNameById(1);
+        }
 
-        //    Assert.AreEqual(, result);
-        //}
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_FalhaDelete()
+        {
+        }
+
+        [Fact]
+        public async Task InseirDadosCarteiraAsync_SucessoDelete()
+        {
+        }
     }
 }

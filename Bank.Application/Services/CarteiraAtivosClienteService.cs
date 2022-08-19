@@ -4,8 +4,6 @@ using Bank.Domain.Entities;
 using Bank.Domain.Interfaces;
 using FluentValidation;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
-using System.Globalization;
 
 namespace Bank.Application.Services
 {
